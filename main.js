@@ -31,6 +31,14 @@ while (adicionarMais != "não") {
     alert("Essa categoria não foi pré-definida.");
   }
 }
+
+while (removerItem === true) {
+  alert(`Lista de compras:\n Frutas: ${frutas}\n Laticínios: ${laticinios}\n Congelados: ${congelados}\n Doces: ${doces}`);
+  itemRemovido = prompt("Qual desses items você quer remover?");
+  let itemExiste = 
+  alert(`O item ${itemRemovido}, foi removido.`);
+
+}
 alert(`Lista de compras:\n Frutas: ${frutas}\n Laticínios: ${laticinios}\n Congelados: ${congelados}\n Doces: ${doces}`);
 
 //***primeira tentativa da aplicação***
