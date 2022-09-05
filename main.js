@@ -5,6 +5,9 @@ let doces = [];
 let comida = "";
 let categoria = "";
 let adicionarMais = "sim";
+let removerItem = "sim";
+let indexDoItem = "";
+let itemRemovido = "";
 
 while (adicionarMais != "não") {
   adicionarMais = prompt("Você deseja adicionar uma comida na sua lista de compras? Responda com 'sim' ou 'não'");
@@ -32,28 +35,37 @@ while (adicionarMais != "não") {
   }
 }
 
-while (removerItem === true) {
+while (removerItem != "não") {
   alert(`Lista de compras:\n Frutas: ${frutas}\n Laticínios: ${laticinios}\n Congelados: ${congelados}\n Doces: ${doces}`);
-  itemRemovido = prompt("Qual desses items você quer remover?");
-  let itemExiste = 
-  alert(`O item ${itemRemovido}, foi removido.`);
+  removerItem = prompt("Você deseja remover algum item da lista? Responda com 'sim' ou 'não'");
+  while (removerItem != "sim" && removerItem != "não") {
+    alert("Por favor, responda apenas com 'sim' ou 'não'.");
+    removerItem = prompt("Você deseja remover algum item da lista? Responda com 'sim' ou 'não'");
+  }
+
+  if (removerItem === "não") {
+    break;
+  }
+
+  categoriaParaRemover = prompt("De qual categoria deseja remover: 'frutas', 'laticínios', 'congelados' ou 'doces'?");
+  itemParaRemover = prompt("Qual item você quer remover?");
+  if (categoriaParaRemover === 'frutas') {
+    indexDoItem = frutas.indexOf(itemParaRemover);
+    itemRemovido = frutas.splice(indexDoItem, 1);
+  }else if (categoriaParaRemover === 'laticínios') {
+    indexDoItem = laticinios.indexOf(itemParaRemover);
+    itemRemovido = laticinios.splice(indexDoItem, 1);
+  }else if (categoriaParaRemover === 'congelados') {
+    indexDoItem = congelados.indexOf(itemParaRemover);
+    itemRemovido = congelados.splice(indexDoItem, 1);
+  }else if (categoriaParaRemover === 'doces') {
+    indexDoItem = doces.indexOf(itemParaRemover);
+    itemRemovido = doces.splice(indexDoItem, 1);
+  }else {
+    alert("Essa categoria não foi pré-definida.");
+  }
+  
+  alert(`O item ${itemParaRemover}, foi removido.`);
 
 }
 alert(`Lista de compras:\n Frutas: ${frutas}\n Laticínios: ${laticinios}\n Congelados: ${congelados}\n Doces: ${doces}`);
-
-//***primeira tentativa da aplicação***
-  /*if (adicionarComida === "sim") {
-    let comida = prompt("Qual comida você deseja inserir?");
-
-    let categoria = prompt("Em qual categoria essa comida se encaixa?");
-    categoria.push(comida);
-  } else if (adicionarComida === "não") {
-    adicionar = false;
-    break;
-  } else {
-    alert("Por favor, responda apenas com 'sim' ou 'não'.");
-  }
-}
-
-alert("Lista de compras:" `${frutas}` `${laticinios}` `${congelados}` `${doces}`);
-*/
